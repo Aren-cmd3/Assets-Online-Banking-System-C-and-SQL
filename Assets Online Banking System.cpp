@@ -15,7 +15,7 @@ int nextAccountNumber = 1001;
 void createAccount() {
     Account acc;
 
-    cout << "\nEnter Account Holder Name: ";
+    cout << "Enter Account Holder Name: ";
     cin.ignore();
     getline(cin, acc.name);
 
@@ -24,7 +24,7 @@ void createAccount() {
 
     accounts.push_back(acc);
 
-    cout << "\nAccount Created Successfully!\n";
+    cout << "Account Created Successfully!\n";
     cout << "Account Number: " << acc.accountNumber << endl;
 }
 
@@ -40,7 +40,7 @@ void deposit() {
     int accNo;
     double amount;
 
-    cout << "\nEnter Account Number: ";
+    cout << "Enter Account Number: ";
     cin >> accNo;
 
     int index = findAccount(accNo);
@@ -62,15 +62,15 @@ void deposit() {
 
     cout << "\n===== RECEIPT =====\n";
     cout << "Account No: " << accNo << endl;
-    cout << "Deposited: PHP " << fixed << setprecision(2) << amount << endl;
-    cout << "New Balance: PHP " << accounts[index].balance << endl;
+    cout << "Deposited:₱ " << fixed << setprecision(2) << amount << endl;
+    cout << "New Balance:₱ " << accounts[index].balance << endl;
 }
 
 void withdrawMoney() {
     int accNo;
     double amount;
 
-    cout << "\nEnter Account Number: ";
+    cout << "Enter Account Number: ";
     cin >> accNo;
 
     int index = findAccount(accNo);
@@ -97,15 +97,15 @@ void withdrawMoney() {
 
     cout << "\n===== RECEIPT =====\n";
     cout << "Account No: " << accNo << endl;
-    cout << "Withdrawn: PHP " << fixed << setprecision(2) << amount << endl;
-    cout << "Remaining Balance: PHP " << accounts[index].balance << endl;
+    cout << "Withdrawn:₱ " << fixed << setprecision(2) << amount << endl;
+    cout << "Remaining Balance: ₱ " << accounts[index].balance << endl;
 }
 
 void transferFunds() {
     int sender, receiver;
     double amount;
 
-    cout << "\nEnter Sender Account Number: ";
+    cout << "Enter Sender Account Number: ";
     cin >> sender;
 
     cout << "Enter Receiver Account Number: ";
@@ -162,7 +162,7 @@ int main() {
 
     do {
         cout << "\n=============================\n";
-        cout << " ONLINE BANKING SYSTEM\n";
+        cout << "ONLINE BANKING SYSTEM\n";
         cout << "=============================\n";
         cout << "1. Create Account\n";
         cout << "2. Deposit\n";
