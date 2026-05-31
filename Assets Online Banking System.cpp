@@ -15,7 +15,7 @@ int nextAccountNumber = 1001;
 void createAccount() {
     Account acc;
 
-    cout << "Enter Account Holder Name: ";
+    cout << "          \nEnter Account Holder Name: ";
     cin.ignore();
     getline(cin, acc.name);
 
@@ -24,8 +24,8 @@ void createAccount() {
 
     accounts.push_back(acc);
 
-    cout << "Account Created Successfully!\n";
-    cout << "Account Number: " << acc.accountNumber << endl;
+    cout << "          \nAccount Created Successfully!\n";
+    cout << "            Account Number: " << acc.accountNumber << endl;
 }
 
 int findAccount(int accNo) {
@@ -40,119 +40,119 @@ void deposit() {
     int accNo;
     double amount;
 
-    cout << "Enter Account Number: ";
+    cout << "           \nEnter Account Number: ";
     cin >> accNo;
 
     int index = findAccount(accNo);
 
     if (index == -1) {
-        cout << "Account not found!\n";
+        cout << "         Account not found!\n";
         return;
     }
 
-    cout << "Enter Deposit Amount: ";
+    cout << "             Enter Deposit Amount: ";
     cin >> amount;
 
     if (amount <= 0) {
-        cout << "Invalid Amount!\n";
+        cout << "         Invalid Amount!\n";
         return;
     }
 
     accounts[index].balance += amount;
 
-    cout << "\n===== RECEIPT =====\n";
-    cout << "Account No: " << accNo << endl;
-    cout << "Deposited:₱ " << fixed << setprecision(2) << amount << endl;
-    cout << "New Balance:₱ " << accounts[index].balance << endl;
+    cout << "           \n===== RECEIPT =====\n";
+    cout << "             Account No: " << accNo << endl;
+    cout << "             Deposited: PHP " << fixed << setprecision(2) << amount << endl;
+    cout << "             New Balance: PHP " << accounts[index].balance << endl;
 }
 
 void withdrawMoney() {
     int accNo;
     double amount;
 
-    cout << "Enter Account Number: ";
+    cout << "           \nEnter Account Number: ";
     cin >> accNo;
 
     int index = findAccount(accNo);
 
     if (index == -1) {
-        cout << "Account not found!\n";
+        cout << "         Account not found!\n";
         return;
     }
 
-    cout << "Enter Withdrawal Amount: ";
+    cout << "             Enter Withdrawal Amount: ";
     cin >> amount;
 
     if (amount <= 0) {
-        cout << "Invalid Amount!\n";
+        cout << "         Invalid Amount!\n";
         return;
     }
 
     if (amount > accounts[index].balance) {
-        cout << "Insufficient Balance!\n";
+        cout << "         Insufficient Balance!\n";
         return;
     }
 
     accounts[index].balance -= amount;
 
-    cout << "\n===== RECEIPT =====\n";
-    cout << "Account No: " << accNo << endl;
-    cout << "Withdrawn:₱ " << fixed << setprecision(2) << amount << endl;
-    cout << "Remaining Balance: ₱ " << accounts[index].balance << endl;
+    cout << "          \n===== RECEIPT =====\n";
+    cout << "            Account No: " << accNo << endl;
+    cout << "            Withdrawn: PHP " << fixed << setprecision(2) << amount << endl;
+    cout << "            Remaining Balance: PHP " << accounts[index].balance << endl;
 }
 
 void transferFunds() {
     int sender, receiver;
     double amount;
 
-    cout << "Enter Sender Account Number: ";
+    cout << "          \nEnter Sender Account Number: ";
     cin >> sender;
 
-    cout << "Enter Receiver Account Number: ";
+    cout << "            Enter Receiver Account Number: ";
     cin >> receiver;
 
     int senderIndex = findAccount(sender);
     int receiverIndex = findAccount(receiver);
 
     if (senderIndex == -1 || receiverIndex == -1) {
-        cout << "Invalid Account Number!\n";
+        cout << "        Invalid Account Number!\n";
         return;
     }
 
-    cout << "Enter Amount to Transfer: ";
+    cout << "            Enter Amount to Transfer: ";
     cin >> amount;
 
     if (amount <= 0) {
-        cout << "Invalid Amount!\n";
+        cout << "        Invalid Amount!\n";
         return;
     }
 
     if (amount > accounts[senderIndex].balance) {
-        cout << "Insufficient Balance!\n";
+        cout << "        Insufficient Balance!\n";
         return;
     }
 
     accounts[senderIndex].balance -= amount;
     accounts[receiverIndex].balance += amount;
 
-    cout << "Transfer Successful!\n";
+    cout << "            Transfer Successful!\n";
 }
 
 void showBalance() {
     int accNo;
 
-    cout << "\nEnter Account Number: ";
+    cout << "          \nEnter Account Number: ";
     cin >> accNo;
 
     int index = findAccount(accNo);
 
     if (index == -1) {
-        cout << "Account not found!\n";
+        cout << "        Account not found!\n";
         return;
     }
 
-    cout << "\nAccount Name: " << accounts[index].name << endl;
-    cout << "Balance: PHP "
+    cout << "          \nAccount Name: " << accounts[index].name << endl;
+    cout << "            Balance: PHP "
          << fixed << setprecision(2)
          << accounts[index].balance << endl;
 }
@@ -161,16 +161,16 @@ int main() {
     int choice;
 
     do {
-        cout << "\n=============================\n";
-        cout << "ONLINE BANKING SYSTEM\n";
-        cout << "=============================\n";
-        cout << "1. Create Account\n";
-        cout << "2. Deposit\n";
-        cout << "3. Withdraw\n";
-        cout << "4. Transfer Funds\n";
-        cout << "5. Show Balance\n";
-        cout << "6. Exit\n";
-        cout << "Enter Choice: ";
+        cout << "       =============================\n";
+        cout << "       ONLINE BANKING SYSTEM\n";
+        cout << "       =============================\n";
+        cout << "        1. Create Account\n";
+        cout << "        2. Deposit\n";
+        cout << "        3. Withdraw\n";
+        cout << "        4. Transfer Funds\n";
+        cout << "        5. Show Balance\n";
+        cout << "        6. Exit\n";
+        cout << "        Enter Choice: ";
         cin >> choice;
 
         switch(choice) {
