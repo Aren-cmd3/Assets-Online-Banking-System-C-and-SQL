@@ -104,6 +104,7 @@ void withdrawMoney() {
 
     if (pin != accounts[index].pin) {
         cout << "Incorrect PIN!\n";
+        cout << "\nTry Again!\n";
         return;
     }
 
@@ -151,6 +152,7 @@ void transferFunds() {
 
     if (pin != accounts[senderIndex].pin) {
         cout << "Incorrect PIN!\n";
+        cout << "\nTry Again!\n";
         return;
     }
 
@@ -194,6 +196,7 @@ void showBalance() {
 
     if (pin != accounts[index].pin) {
         cout << "Incorrect PIN!\n";
+        cout << "\nTry Again!\n";
         return;
     }
 
@@ -237,9 +240,11 @@ int main() {
                 break;
             case 6:
                 cout << "Thank you for using the system.\n";
+                cout << "\nPlease Come Again!!!\n";
                 break;
             default:
-                cout << "Invalid Choice! Please Try Again.\n";
+                cout << "Invalid Choice!\n";
+                cout << "\nPlease Try Again.\n";
         }
 
     } while (choice != 6);
